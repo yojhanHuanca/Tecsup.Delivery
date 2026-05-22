@@ -1,0 +1,390 @@
+{
+  "info": {
+    "name": "Tecsup Delivery - API REST Segura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "clienteId",
+      "value": "1"
+    },
+    {
+      "key": "categoriaId",
+      "value": "1"
+    },
+    {
+      "key": "productoId",
+      "value": "1"
+    },
+    {
+      "key": "pedidoId",
+      "value": "1"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "admin",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "admin123",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "GET - Listar clientes",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clientes"
+          }
+        },
+        {
+          "name": "GET - Buscar cliente por id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clientes/{{clienteId}}"
+          }
+        },
+        {
+          "name": "POST - Crear cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"Juan\",\n  \"apellidos\": \"Perez\",\n  \"correo\": \"juan.perez@correo.com\",\n  \"telefono\": \"987654321\",\n  \"direccion\": \"Av. Principal 123\"\n}"
+            },
+            "url": "{{baseUrl}}/clientes"
+          }
+        },
+        {
+          "name": "PUT - Actualizar cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"Juan Carlos\",\n  \"apellidos\": \"Perez Ramos\",\n  \"correo\": \"juan.perez@correo.com\",\n  \"telefono\": \"987654321\",\n  \"direccion\": \"Av. Principal 456\"\n}"
+            },
+            "url": "{{baseUrl}}/clientes/{{clienteId}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar cliente",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/clientes/{{clienteId}}"
+          }
+        },
+        {
+          "name": "VALIDACION - Cliente invalido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"\",\n  \"apellidos\": \"\",\n  \"correo\": \"correo-invalido\",\n  \"telefono\": \"\",\n  \"direccion\": \"\"\n}"
+            },
+            "url": "{{baseUrl}}/clientes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categorias",
+      "item": [
+        {
+          "name": "GET - Listar categorias",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/categorias"
+          }
+        },
+        {
+          "name": "GET - Buscar categoria por id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/categorias/{{categoriaId}}"
+          }
+        },
+        {
+          "name": "POST - Crear categoria",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Bebidas\"\n}"
+            },
+            "url": "{{baseUrl}}/categorias"
+          }
+        },
+        {
+          "name": "PUT - Actualizar categoria",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Bebidas frias\"\n}"
+            },
+            "url": "{{baseUrl}}/categorias/{{categoriaId}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar categoria",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/categorias/{{categoriaId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "item": [
+        {
+          "name": "GET - Listar productos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/productos"
+          }
+        },
+        {
+          "name": "GET - Buscar producto por id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/productos/{{productoId}}"
+          }
+        },
+        {
+          "name": "POST - Crear producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Agua Mineral\",\n  \"descripcion\": \"Botella de 625 ml\",\n  \"precio\": 2.50,\n  \"stock\": 30,\n  \"categoriaId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/productos"
+          }
+        },
+        {
+          "name": "PUT - Actualizar producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Agua Mineral\",\n  \"descripcion\": \"Botella de 1 litro\",\n  \"precio\": 3.50,\n  \"stock\": 25,\n  \"categoriaId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/productos/{{productoId}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar producto",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/productos/{{productoId}}"
+          }
+        },
+        {
+          "name": "VALIDACION - Producto invalido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"\",\n  \"descripcion\": \"\",\n  \"precio\": -5,\n  \"stock\": -1,\n  \"categoriaId\": null\n}"
+            },
+            "url": "{{baseUrl}}/productos"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "GET - Listar pedidos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pedidos"
+          }
+        },
+        {
+          "name": "GET - Buscar pedido por id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pedidos/{{pedidoId}}"
+          }
+        },
+        {
+          "name": "POST - Crear pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": 1,\n  \"detalles\": [\n    {\n      \"productoId\": 1,\n      \"cantidad\": 2\n    }\n  ]\n}"
+            },
+            "url": "{{baseUrl}}/pedidos"
+          }
+        },
+        {
+          "name": "POST - Stock insuficiente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": 1,\n  \"detalles\": [\n    {\n      \"productoId\": 1,\n      \"cantidad\": 9999\n    }\n  ]\n}"
+            },
+            "url": "{{baseUrl}}/pedidos"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar pedido",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/pedidos/{{pedidoId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auditoria",
+      "item": [
+        {
+          "name": "GET - Listar auditoria",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auditoria"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Seguridad",
+      "item": [
+        {
+          "name": "GET con ROLE_USER permitido",
+          "auth": {
+            "type": "basic",
+            "basic": [
+              {
+                "key": "username",
+                "value": "user",
+                "type": "string"
+              },
+              {
+                "key": "password",
+                "value": "user123",
+                "type": "string"
+              }
+            ]
+          },
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/productos"
+          }
+        },
+        {
+          "name": "POST con ROLE_USER denegado",
+          "auth": {
+            "type": "basic",
+            "basic": [
+              {
+                "key": "username",
+                "value": "user",
+                "type": "string"
+              },
+              {
+                "key": "password",
+                "value": "user123",
+                "type": "string"
+              }
+            ]
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Snacks\"\n}"
+            },
+            "url": "{{baseUrl}}/categorias"
+          }
+        }
+      ]
+    }
+  ]
+}
